@@ -20,7 +20,7 @@ def load_data_csv(filepath):
         print(f"Une erreur est survenue lors du chargement du fichier {filepath}: {e}")
 
 
-def load_data_xlsx(filepath):
+def load_data_xlsx(filepath , sheet):
     """
     Charge les données depuis un fichier XLSX dans un DataFrame pandas.
 
@@ -31,11 +31,10 @@ def load_data_xlsx(filepath):
         DataFrame: Un DataFrame pandas contenant les données chargées du fichier.
     """
     try:
-        df = pd.read_excel(filepath)
+        df = pd.read_excel(filepath , sheet_name=sheet)
         print(f"Data chargé correctement {filepath}")
         return df
     except FileNotFoundError:
         print(f"Le fichier {filepath} n'a pas été trouvé.")
     except Exception as e:
         print(f"Une erreur est survenue lors du chargement du fichier {filepath}: {e}")
-
